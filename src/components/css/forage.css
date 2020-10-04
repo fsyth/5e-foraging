@@ -1,0 +1,257 @@
+/* ForageCalculator */
+
+body {
+  --table-color: #f4f2f0;
+  --border-color: #e5e1dd;
+
+  background-color: var(--table-color);
+}
+
+.forage-calculator {
+  --common-color: #333;
+  --uncommon-color: #0000eb;
+  --rare-color: #b98500;
+
+  min-width: fit-content;
+  max-width: 1000px;
+  min-height: calc(100vh - 2em);
+  margin: 0 auto;
+  padding: 1em 4em;
+  background-color: #fff;
+  box-shadow: 0 0 50px 0 #ccc;
+  text-align: center;
+}
+
+.rarity-common {
+  color: var(--common-color);
+}
+
+.rarity-uncommon {
+  color: var(--uncommon-color);
+}
+
+.rarity-rare {
+  color: var(--rare-color)
+}
+
+.ability-check {
+  font-size: 75%;
+  color: #888;
+}
+
+/* ForageTable */
+
+table {
+  margin: 1.66em auto;
+  border-collapse: collapse;
+}
+
+thead {
+  font-weight: bold;
+}
+
+td {
+  padding: 0.1em 0.4em;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: var(--table-color);
+}
+
+table img {
+  height: 1.5em;
+}
+
+.forage-table thead td:nth-child(2) {
+  text-align: left;
+}
+
+.forage-table tbody td:nth-child(3) {
+  text-align: left;
+  min-width: 10em;
+}
+
+.forage-table tbody td:nth-child(4) {
+  text-align: right;
+  min-width: 10em;
+}
+
+/* ForageCheckControls */
+
+label::after {
+  content: ": ";
+}
+
+.forage-controls {
+  background-color: var(--table-color);
+  margin: 0.5em 0;
+  padding: 0.5em;
+  border-radius: 4px;
+}
+
+.forage-controls>div {
+  display: inline-block;
+  margin: 0.5em 1em;
+}
+
+.forage-controls select {
+  min-width: 12em;
+}
+
+.forage-controls input[type=number] {
+  width: 2.5em;
+}
+
+.forage-controls input,
+.forage-controls select {
+  border-radius: 4px;
+  box-shadow: 0px 2px 0 0 #777;
+}
+
+.forage-controls input:focus,
+.forage-controls select:focus {
+  outline: none;
+}
+
+/* ForagingCalculator */
+
+.forage-button {
+  position: relative;
+  margin: 1em;
+  padding: 0.75em 2.5em;
+  font-size: 100%;
+  border-radius: 4px;
+  border-width: 2px;
+  box-shadow: 0px 4px 0 0 #777;
+  background-color: var(--table-color);
+  cursor: pointer;
+}
+
+.forage-button:hover {
+  background-color: #faf8f8;
+}
+
+.forage-button:hover:active {
+  top: 4px;
+  background-color: #fff;
+  box-shadow: none;
+}
+
+.forage-button::before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  width: calc(100% + 4px);
+  height: 6px;
+  left: -2px;
+  top: -2px;
+}
+
+.forage-button:hover:active::before {
+  top: -6px;
+}
+
+.forage-button:focus {
+  outline: none ;
+}
+
+/* ForageResult */
+
+.forage-result {
+  background-color: #fff;
+  border: 2px solid var(--border-color);
+  border-radius: 4px;
+  margin: 0.5em 0;
+  animation: forage-result-appear 0.8s ease-out forwards;
+}
+
+@keyframes forage-result-appear {
+  0% {
+    max-height: 0;
+    overflow: hidden;
+  }
+  99% {
+    overflow: hidden;
+  }
+  100% {
+    max-height: 16em;
+    overflow: initial;
+  }
+}
+
+/* Ingredient Result */
+
+.ingredient-result {
+  display: inline-block;
+  width: 24%;
+  min-width: 15em;
+  min-height: 3em;
+  margin: 0.5em 0;
+  text-align: left;
+  vertical-align: top;
+}
+
+.ingredient-result span.ability-check {
+  margin-left: 0.5em;
+}
+
+.ingredient-result img {
+  float: left;
+  width: 3em; /* 48px */
+  visibility: hidden;
+  animation: ingredient-image-appear ease-out 0.2s forwards;
+}
+
+.ingredient-result:nth-child(1) img {
+  animation-delay: 0.2s;
+}
+
+.ingredient-result:nth-child(2) img {
+  animation-delay: 0.4s;
+}
+
+.ingredient-result:nth-child(3) img {
+  animation-delay: 0.6s;
+}
+
+.ingredient-result:nth-child(4) img {
+  animation-delay: 0.8s;
+}
+
+@keyframes ingredient-image-appear {
+  0% {
+    transform: scale(0);
+    visibility: visible;
+  }
+  75% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: initial;
+    visibility: visible;
+  }
+}
+
+/* Responsive */
+
+@media only screen and (max-width: 665px) {
+  .forage-calculator {
+    padding: 1em 0;
+  }
+
+  .forage-controls {
+    border-radius: 0;
+  }
+
+  .forage-result {
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+}
+
+@media only screen and (max-width: 540px) {
+  .forage-table {
+    font-size: 70%;
+  }
+}
