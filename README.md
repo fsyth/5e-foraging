@@ -10,6 +10,8 @@ However, making many foraging checks requires rolling a lot of dice and table lo
 
 ### Foraging (with this tool)
 
+[Try it here!](https://fsyth.github.io/5e-foraging/)
+
 Set the environment, the forager's survival modifier, and the food availability (DC). If the player passes their foraging check, click 'Forage!'. The ingredients found will appear below.
 
 The ingredient lists and foraging lists are designed to be as easy as possible to extend in the code as needed. In the future, it would be nice to be able to do this through the UI.
